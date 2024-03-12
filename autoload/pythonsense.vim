@@ -651,6 +651,11 @@ endfunction
 
 " Python Location Information {{{1
 function! pythonsense#echo_python_location()
+echo pythonsense#python_location()
+    return
+endfunction
+
+function! pythonsense#python_location()
     let indent_char = pythonsense#get_indent_char()
     let pyloc = []
     let current_line = line('.')
@@ -693,7 +698,6 @@ function! pythonsense#echo_python_location()
     else
         let joiner = "."
     endif
-    echo join(reverse(pyloc), joiner)
-    return
+    return join(reverse(pyloc), joiner)
 endfunction
 " }}}1
